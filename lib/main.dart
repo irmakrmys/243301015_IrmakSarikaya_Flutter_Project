@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitapp/favorilerim.dart';
 
 void main() {
   runApp(MyApp());
@@ -138,7 +139,15 @@ class MyApp extends StatelessWidget {
               ),
 
               IconButton(
-                onPressed: () => print("favorilerim"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Favorilerim(),
+                    ),
+                  );
+                },
+
                 icon: Icon(Icons.favorite, color: Colors.grey),
               ),
 
