@@ -25,6 +25,109 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+
+            children: [
+              SizedBox(height: 10),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 203, 202, 202),
+                  ),
+                ),
+
+                width: 500,
+                height: 40,
+              ),
+              SizedBox(height: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 203, 202, 202),
+                        ),
+                      ),
+                      width: 100,
+                      height: 100,
+                    ),
+                    SizedBox(width: 12),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
         bottomNavigationBar: BottomAppBar(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
