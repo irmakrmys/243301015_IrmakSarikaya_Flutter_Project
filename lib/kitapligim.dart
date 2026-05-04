@@ -10,8 +10,12 @@ class Kitapligim extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.red, title: Text("Kitaplığım")),
-      body: Center(child: Text("Henüz sepetine kitap eklemedin")),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text("Kitaplığım"),
+        centerTitle: true,
+      ),
+
       bottomNavigationBar: Anabottombar(),
     );
   }

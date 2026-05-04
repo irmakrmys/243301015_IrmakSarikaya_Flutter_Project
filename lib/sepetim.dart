@@ -9,7 +9,12 @@ class Sepetim extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.red, title: Text("Sepetim")),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text("Sepetim"),
+        centerTitle: true,
+      ),
+      body: Center(child: Text("Henüz sepetine kitap eklemedin")),
       bottomNavigationBar: Anabottombar(),
     );
   }

@@ -1,0 +1,177 @@
+{
+  "kitaplar": [
+
+{
+  "id": 1,
+  "sayfa_sayisi": 320,
+  "yazaradi": "Sabahattin Ali",
+  "kitap_adi": "Kürk Mantolu Madonna",
+  "dil": "Türkçe",
+  "fiyat": 110.0,
+  "resim": "https://picsum.photos/seed/k1/200/300",
+  "kategori": 1
+},
+{
+"id": 2,
+"sayfa_sayisi": 450,
+"yazaradi": "İlber Ortaylı",
+"kitap_adi": "Türklerin Tarihi",
+"dil": "Türkçe",
+"fiyat": 195.0,
+"resim": "https://picsum.photos/seed/k2/200/300",
+"kategori": 2
+},
+{
+"id": 3,
+"sayfa_sayisi": 120,
+"yazaradi": "Nurettin Topçu",
+"kitap_adi": "Var Olmak",
+"dil": "Türkçe",
+"fiyat": 85.0,
+"resim": "https://picsum.photos/seed/k3/200/300",
+"kategori": 3
+},
+{
+"id": 4,
+"sayfa_sayisi": 96,
+"yazaradi": "Gülten Dayıoğlu",
+"kitap_adi": "Fadiş",
+"dil": "Türkçe",
+"fiyat": 65.0,
+"resim": "https://picsum.photos/seed/k4/200/300",
+"kategori": 4
+},
+{
+"id": 5,
+"sayfa_sayisi": 64,
+"yazaradi": "Kolektif",
+"kitap_adi": "Bilim Teknik - Mayıs",
+"dil": "Türkçe",
+"fiyat": 45.0,
+"resim": "https://picsum.photos/seed/k5/200/300",
+"kategori": 5
+},
+{
+"id": 6,
+"sayfa_sayisi": 280,
+"yazaradi": "Gazali",
+"kitap_adi": "Kalplerin Keşfi",
+"dil": "Türkçe",
+"fiyat": 150.0,
+"resim": "https://picsum.photos/seed/k6/200/300",
+"kategori": 6
+},
+{
+"id": 7,
+"sayfa_sayisi": 400,
+"yazaradi": "Yaşar Kemal",
+"kitap_adi": "İnce Memed",
+"dil": "Türkçe",
+"fiyat": 180.0,
+"resim": "https://picsum.photos/seed/k7/200/300",
+"kategori": 1
+},
+{
+"id": 8,
+"sayfa_sayisi": 310,
+"yazaradi": "Halil İnalcık",
+"kitap_adi": "Osmanlı Tarihi",
+"dil": "Türkçe",
+"fiyat": 220.0,
+"resim": "https://picsum.photos/seed/k8/200/300",
+"kategori": 2
+},
+{
+"id": 9,
+"sayfa_sayisi": 150,
+"yazaradi": "Cemil Meriç",
+"kitap_adi": "Bu Ülke",
+"dil": "Türkçe",
+"fiyat": 130.0,
+"resim": "https://picsum.photos/seed/k9/200/300",
+"kategori": 3
+},
+{
+"id": 10,
+"sayfa_sayisi": 80,
+"yazaradi": "Eflatun Nuri",
+"kitap_adi": "Masallar",
+"dil": "Türkçe",
+"fiyat": 55.0,
+"resim": "https://picsum.photos/seed/k10/200/300",
+"kategori": 4
+},
+{
+"id": 11,
+"sayfa_sayisi": 70,
+"yazaradi": "Kolektif",
+"kitap_adi": "Atlas Dergisi",
+"dil": "Türkçe",
+"fiyat": 50.0,
+"resim": "https://picsum.photos/seed/k11/200/300",
+"kategori": 5
+},
+{
+"id": 12,
+"sayfa_sayisi": 200,
+"yazaradi": "Mevlana",
+"kitap_adi": "Mesnevi'den Seçmeler",
+"dil": "Türkçe",
+"fiyat": 120.0,
+"resim": "https://picsum.photos/seed/k12/200/300",
+"kategori": 6
+},
+{
+"id": 13,
+"sayfa_sayisi": 350,
+"yazaradi": "Reşat Nuri Güntekin",
+"kitap_adi": "Çalıkuşu",
+"dil": "Türkçe",
+"fiyat": 140.0,
+"resim": "https://picsum.photos/seed/k13/200/300",
+"kategori": 1
+},
+{
+"id": 14,
+"sayfa_sayisi": 275,
+"yazaradi": "Turgut Özakman",
+"kitap_adi": "Şu Çılgın Türkler",
+"dil": "Türkçe",
+"fiyat": 250.0,
+"resim": "https://picsum.photos/seed/k14/200/300",
+"kategori": 2
+},
+{
+"id": 15,
+"sayfa_sayisi": 180,
+"yazaradi": "Doğan Cüceloğlu",
+"kitap_adi": "İnsan İnsana",
+"dil": "Türkçe",
+"fiyat": 160.0,
+"resim": "https://picsum.photos/seed/k15/200/300",
+"kategori": 3
+}
+],
+  "kategoriler": [
+    {"id":1,
+    "isim":"Roman"
+    },
+    {"id":1,
+      "isim":"Tarih"
+    },
+    {"id":1,
+      "isim":"Deneme"
+    },
+    {"id":1,
+      "isim":"Çocuk"
+    },
+    {"id":1,
+      "isim":"Dergi"
+    },
+    {"id":1,
+      "isim":"Din"
+    }
+
+  ]
+}
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitapp/favorilerim.dart';
 import 'package:kitapp/hesabim.dart';
 import 'package:kitapp/kitapligim.dart';
+import 'package:kitapp/main.dart';
 import 'package:kitapp/sepetim.dart';
 
 class Anabottombar extends StatefulWidget {
@@ -19,7 +20,13 @@ class _AnabottombarState extends State<Anabottombar> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            onPressed: () => print("ana sayfa"),
+            onPressed: () {
+    Navigator.push(
+    //favorilerimm
+    context,
+    MaterialPageRoute(builder: (context) =>  MyApp()),
+    );
+    },
             icon: Icon(Icons.home, color: Colors.red),
           ),
 

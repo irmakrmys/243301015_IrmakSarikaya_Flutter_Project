@@ -1,16 +1,30 @@
+import 'dart:convert';
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kitapp/favorilerim.dart';
 import 'package:kitapp/hesabim.dart';
 import 'package:kitapp/kitapligim.dart';
 import 'package:kitapp/sepetim.dart';
 import 'package:kitapp/mainscreen.dart';
+import 'package:kitapp/kitaplar.dart';
+void main(){
 
-void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+
+@override
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,20 +70,33 @@ class Anasayfa extends StatelessWidget {
 
                     width: double.infinity,
                     height: 40,
-                    child: const Padding(
-                      padding: EdgeInsetsGeometry.symmetric(horizontal: 9),
+                    child:  Padding(
+                      padding:  const EdgeInsets.symmetric(horizontal: 9),
 
                       child: Row(
                         children: [
-                          Icon(Icons.search),
-                          Text(" Kitap , yazar , kategori ara "),
-                        ],
+                          const  Icon(Icons.search),
+
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: "Kitap, yazar, kategori ara",
+                            border: InputBorder.none,
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                          ),
+                          style: const TextStyle(fontSize: 14),
+                        ),
+
                       ),
+
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
+    ),
+    ],
+    ),
 
             SizedBox(height: 10),
             SingleChildScrollView(
@@ -227,6 +254,7 @@ class Anasayfa extends StatelessWidget {
                       ),
                     ],
                   ),
+                  Card(),
                   SizedBox(width: 12),
                 ],
               ),
