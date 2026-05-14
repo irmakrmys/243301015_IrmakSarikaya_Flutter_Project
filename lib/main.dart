@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kitapp/favorilerim.dart';
@@ -9,9 +7,18 @@ import 'package:kitapp/kitapligim.dart';
 import 'package:kitapp/sepetim.dart';
 import 'package:kitapp/mainscreen.dart';
 import 'package:kitapp/kitaplar.dart';
-void main(){
+import 'package:firebase_core/firebase_core.dart';
 
-  runApp(MyApp());
+import 'firebase_options.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp( MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -207,30 +214,9 @@ class Anasayfa extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 12),
-                  Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: () =>
-                            print("kategoriler kısmına tıklandı-dergi"),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: const Color.fromARGB(255, 203, 202, 202),
-                            ),
-                          ),
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsetsGeometry.all(8),
-                        child: Text("Dergi"),
-                      ),
-                    ],
-                  ),
+
+
+
                   SizedBox(width: 12),
                   Stack(
                     children: [
