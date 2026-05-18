@@ -69,7 +69,7 @@ setState(() {
                  SizedBox(height: 20,),
                    ElevatedButton(
                      onPressed: () async {
-                       // Çıkış Yap butonu
+
                        await FirebaseAuth.instance.signOut();
                        ScaffoldMessenger.of(context).showSnackBar(
                          const SnackBar(
@@ -125,34 +125,57 @@ SizedBox(height: 23),
             SizedBox(height: 23),
 
            errorMessage!=null? Text(errorMessage!):const SizedBox.shrink(),
-           ElevatedButton(
+            ElevatedButton(
+              onPressed: () async {
 
-               onPressed: ()  async {
-                 if (islogin) {
-                   await login();
-                 } else {
-                   await createUser();
-                 }
-                 if (errorMessage == null) {
-                   ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Griş yapıldı"),
-                          duration: Duration(seconds: 2),
-                          backgroundColor: Colors.green,
-                        )
-                   );
-                   setState(() {
+                if (islogin) {
+                  await login();
+                } else {
+                  await createUser();
+                }
 
-                   });
-                   Navigator.pushReplacement(context,
-                     MaterialPageRoute(builder: (context) => MyApp()),
 
-                   );
-                 }
-               },
-                 child :islogin ? const Text("Giriş Yap"):const Text("Kaydol"),
-           ),
+                if (errorMessage == null) {
+                  if (islogin) {
 
+                    await logKaydet(
+                        islem: "Kullanıcı Girişi",
+                        detay: "test_kullanici sisteme başarıyla giriş yaptı."
+                    );
+                  } else {
+
+                    await logKaydet(
+                        islem: "Yeni Kullanıcı Kaydı",
+                        detay: "Yeni bir kullanıcı başarıyla sisteme kaydoldu."
+                    );
+                  }
+
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(islogin ? "Giriş yapıldı" : "Kayıt başarıyla oluşturuldu"),
+                        duration: const Duration(seconds: 2),
+                        backgroundColor: Colors.green,
+                      )
+                  );
+
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyApp()),
+                  );
+                } else {
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("İşlem başarısız: $errorMessage"),
+                        backgroundColor: Colors.redAccent,
+                      )
+                  );
+                }
+              },
+              child: islogin ? const Text("Giriş Yap") : const Text("Kaydol"),
+            ),
 
             GestureDetector(
               onTap: (){

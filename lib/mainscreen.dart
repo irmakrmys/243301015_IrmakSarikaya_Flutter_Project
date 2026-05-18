@@ -22,7 +22,7 @@ class _AnabottombarState extends State<Anabottombar> {
           IconButton(
             onPressed: () {
     Navigator.push(
-    //favorilerimm
+
     context,
     MaterialPageRoute(builder: (context) =>  MyApp()),
     );
@@ -33,7 +33,7 @@ class _AnabottombarState extends State<Anabottombar> {
           IconButton(
             onPressed: () {
               Navigator.push(
-                //favorilerimm
+
                 context,
                 MaterialPageRoute(builder: (context) => const Favorilerim()),
               );

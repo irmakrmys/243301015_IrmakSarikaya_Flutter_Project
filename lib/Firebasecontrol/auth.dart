@@ -4,7 +4,7 @@ class Auth{
  final FirebaseAuth firebaseAuth=FirebaseAuth.instance;
 
  User? get currentUser => firebaseAuth.currentUser;
-Stream<User?> get authChanges=> firebaseAuth.authStateChanges();//değişiklerden haber olcaz
+Stream<User?> get authChanges=> firebaseAuth.authStateChanges();
 
  Future<void> create_User({
 

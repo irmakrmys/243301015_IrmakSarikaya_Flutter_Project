@@ -80,7 +80,7 @@ class _KitapligimState extends State<Kitapligim> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: "Fiyat",
-                        suffixText: "TL", // Sağ tarafa TL yazar
+                        suffixText: "TL",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30)),
                       ),
@@ -90,22 +90,22 @@ class _KitapligimState extends State<Kitapligim> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                         minimumSize: const Size(double.infinity, 50),
-                        shape: const StadiumBorder(), // Kenarları tam yuvarlak yapar
+                        shape: const StadiumBorder(),
                       ),
                       onPressed: () {
-                        String kitap = adController.text.trim(); // .trim() başındaki/sonundaki boşlukları siler
+                        String kitap = adController.text.trim();
                         String yazar = yazarController.text.trim();
                         String fiyat = fiyatController.text.trim();
                         String kategori = kategoriController.text.trim();
                         if (kitap.isEmpty || yazar.isEmpty || fiyat.isEmpty || kategori.isEmpty) {
-                          // Eğer herhangi biri boşsa Firebase'e GİTME, kullanıcıyı uyar!
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text("Lütfen tüm alanları doldurun!"),
                               backgroundColor: Colors.orange,
                             ),
                           );
-                          return; // Fonksiyonu burada bitir, alt satırlardaki Firebase koduna geçme
+                          return;
                         }
                        kitapEkleFirebase();
                         print("Yayınla basıldı: ${adController.text}");
