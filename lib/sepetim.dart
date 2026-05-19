@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,18 +20,20 @@ class Sepetim extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String? mevcutid=FirebaseAuth.instance.currentUser?.uid;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         title: const Text("Sepetim", style: TextStyle(color: Colors.black)),
         centerTitle: true,
       ),
-      body: Padding(
+      body: mevcutid==null?const Center( child: Text("Sepetinizi görmek için giriş yapın"))
+     : Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
               .collection('kitapidleri')
-              .doc('test_kitapidleri')
+              .doc(mevcutid)
               .snapshots(),
           builder: (context, kullaniciSnapshot) {
             if (kullaniciSnapshot.hasError) {
@@ -223,7 +226,7 @@ class Sepetim extends StatelessWidget {
     );
   }
 
-  
+
   Widget SepetCard({required Map<String, dynamic> kitapverileri, required String kitapId}) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

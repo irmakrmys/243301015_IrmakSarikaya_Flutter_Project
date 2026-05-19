@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
-
 
 import 'package:kitapp/favorilerim.dart';
 import 'package:kitapp/hesabim.dart';
@@ -37,7 +37,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
     kitaplariOtomatikYukle();
   }
 
@@ -51,7 +50,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
 class Anasayfa extends StatefulWidget {
   const Anasayfa({super.key});
 
@@ -60,7 +58,6 @@ class Anasayfa extends StatefulWidget {
 }
 
 class _AnasayfaState extends State<Anasayfa> {
-
   String secilenKategori = "Roman";
 
   @override
@@ -77,7 +74,6 @@ class _AnasayfaState extends State<Anasayfa> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 9),
               child: Container(
@@ -111,8 +107,6 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
             ),
             const SizedBox(height: 10),
-
-
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -152,8 +146,6 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
             ),
             const SizedBox(height: 10),
-
-
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -212,7 +204,6 @@ class _AnasayfaState extends State<Anasayfa> {
     );
   }
 
-
   Widget _buildKategoriKutusu(String baslik, VoidCallback onTap) {
     final bool isSelected = secilenKategori == baslik;
 
@@ -221,7 +212,6 @@ class _AnasayfaState extends State<Anasayfa> {
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
-
           color: isSelected ? Colors.redAccent.withOpacity(0.15) : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
@@ -242,7 +232,6 @@ class _AnasayfaState extends State<Anasayfa> {
       ),
     );
   }
-
 
   Widget Kitapcard({
     required Map<String, dynamic> kitapverileri,
@@ -310,44 +299,50 @@ class _AnasayfaState extends State<Anasayfa> {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-
+                    // Dinamik Favori Butonu
                     IconButton(
                       constraints: const BoxConstraints(),
                       padding: EdgeInsets.zero,
                       onPressed: () async {
-                        await FirebaseFirestore.instance
-                            .collection('kitapidleri')
-                            .doc('test_kitapidleri')
-                            .set({
-                          'favori_kitaplar': FieldValue.arrayUnion([kitapId])
-                        }, SetOptions(merge: true));
+                        final String? mevcutKullaniciUid = FirebaseAuth.instance.currentUser?.uid;
+                        if (mevcutKullaniciUid != null) {
+                          await FirebaseFirestore.instance
+                              .collection('kitapidleri')
+                              .doc(mevcutKullaniciUid) // DİNAMİK UID BAĞLANDI
+                              .set({
+                            'favori_kitaplar': FieldValue.arrayUnion([kitapId])
+                          }, SetOptions(merge: true));
 
-                        print("${kitapverileri['kitapadi']} favorilere eklendi!");
+                          print("${kitapverileri['kitapadi']} favorilere eklendi!");
+                        }
                       },
                       icon: const Icon(Icons.favorite, size: 18, color: Colors.red),
                     ),
                     const SizedBox(width: 5),
-                    // Sepet Butonu
+                    // Dinamik Sepet Butonu
                     IconButton(
                       constraints: const BoxConstraints(),
                       padding: EdgeInsets.zero,
                       onPressed: () async {
-                        await FirebaseFirestore.instance
-                            .collection('kitapidleri')
-                            .doc('test_kitapidleri')
-                            .set({
-                          'sepetim': FieldValue.arrayUnion([kitapId])
-                        }, SetOptions(merge: true));
+                        final String? mevcutKullaniciUid = FirebaseAuth.instance.currentUser?.uid;
+                        if (mevcutKullaniciUid != null) {
+                          await FirebaseFirestore.instance
+                              .collection('kitapidleri')
+                              .doc(mevcutKullaniciUid) // DİNAMİK UID BAĞLANDI
+                              .set({
+                            'sepetim': FieldValue.arrayUnion([kitapId])
+                          }, SetOptions(merge: true));
 
-                        print("${kitapverileri['kitapadi']} sepete eklendi!");
+                          print("${kitapverileri['kitapadi']} sepete eklendi!");
 
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('${kitapverileri['kitapadi']} sepete eklendi!'),
-                            backgroundColor: Colors.green,
-                            duration: const Duration(seconds: 2),
-                          ),
-                        );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${kitapverileri['kitapadi']} sepete eklendi!'),
+                              backgroundColor: Colors.green,
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                        }
                       },
                       icon: const Icon(Icons.add_shopping_cart, size: 18),
                     ),

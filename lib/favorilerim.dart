@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 class Favorilerim extends StatelessWidget {
   const Favorilerim({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final String? mevcutUid = FirebaseAuth.instance.currentUser?.uid;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
@@ -18,7 +19,7 @@ class Favorilerim extends StatelessWidget {
 
           stream: FirebaseFirestore.instance
               .collection('kitapidleri')
-              .doc('test_kitapidleri')
+              .doc(mevcutUid)
               .snapshots(),
           builder: (context, kullaniciSnapshot) {
             if (kullaniciSnapshot.hasError) {
@@ -92,7 +93,7 @@ class Favorilerim extends StatelessWidget {
     );
   }
 
-  // ANA SAYFADAKİYLE AYNI TASARIMDA KART YAPISI:
+
   Widget Kitapcard({required Map<String, dynamic> kitapverileri, required String kitapId}) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -148,6 +149,7 @@ class Favorilerim extends StatelessWidget {
                       ),
                     ),
 
+                    IconButton(
                       constraints: const BoxConstraints(),
                       padding: EdgeInsets.zero,
                       onPressed: () async {
