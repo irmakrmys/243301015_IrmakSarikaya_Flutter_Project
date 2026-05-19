@@ -1,16 +1,14 @@
-# kitapp
+# 📚 KitApp - İkinci El Kitap Alım Satım ve Takas Platformu
+İkinci el kitapların,bir alışveriş uygulaması olarak satıldığı bir uygulama.
+Admin bilgileri:
+Email:irmak@gmail.com
+Şifre:123456
+kullanıcı bilgileri:
+Kullanıcı mail:tugce@gmail.com
+Şifre:tugce_12
+Kullanıcı mail:merve.oz@gmail.com
+Şifre:merve_23
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
